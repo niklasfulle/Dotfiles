@@ -1,16 +1,3 @@
-oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/niklasfulle/Windows-Setup-Script/main/terminal/niklasfulle.omp.json' | Invoke-Expression
-
-
-# Prevent conflict with built-in aliases
-Remove-Alias gc -Force -ErrorAction SilentlyContinue
-Remove-Alias gcb -Force -ErrorAction SilentlyContinue
-Remove-Alias gcm -Force -ErrorAction SilentlyContinue
-Remove-Alias gcs -Force -ErrorAction SilentlyContinue
-Remove-Alias gl -Force -ErrorAction SilentlyContinue
-Remove-Alias gm -Force -ErrorAction SilentlyContinue
-Remove-Alias gp -Force -ErrorAction SilentlyContinue
-Remove-Alias gpv -Force -ErrorAction SilentlyContinue
-
 # ----------------------
 # Git Aliases
 # ----------------------
