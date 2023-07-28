@@ -14,400 +14,131 @@ eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/niklasfu
 # Git Aliases
 # ----------------------
 
-function g {
-  git $args
-}
-function ga {
-  git add $args
-}
-function gaa {
-  git add --all $args
-}
-function gapa {
-  git add --patch $args
-}
-function gau {
-  git add --update $args
-}
-function gb {
-  git branch $args
-}
-function gba {
-  git branch -a $args
-}
-function gbl {
-  git blame -b -w $args
-}
-function gbnm {
-  git branch --no-merged $args
-}
-function gbr {
-  git branch --remote $args
-}
-function gbs {
-  git bisect $args
-}
-function gbsb {
-  git bisect bad $args
-}
-function gbsg {
-  git bisect good $args
-}
-function gbsr {
-  git bisect reset $args
-}
-function gbss {
-  git bisect start $args
-}
-function gc {
-  git commit -v $args
-}
-function gc! {
-  git commit -v --amend $args
-}
-function gcn! {
-  git commit -v --no-edit --amend $args
-}
-function gca {
-  git commit -v -a $args
-}
-function gcam {
-  git commit -a -m $args
-}
-function gca! {
-  git commit -v -a --amend $args
-}
-function gcan! {
-  git commit -v -a --no-edit --amend $args
-}
-function gcans! {
-  git commit -v -a -s --no-edit --amend $args
-}
-function gcb {
-  git checkout -b $args
-}
-function gcf {
-  git config --list $args
-}
-function gcl {
-  git clone --recursive $args
-}
-function gclean {
-  git clean -df $args
-}
-function gcm {
-  $MainBranch = Get-Git-MainBranch
-  git checkout $MainBranch $args
-}
-function gcd {
-  git checkout develop $args
-}
-function gcmsg {
-  git commit -m $args
-}
-function gco {
-  git checkout $args
-}
-function gcount {
-  git shortlog -sn $args
-}
-function gcp {
-  git cherry-pick $args
-}
-function gcpa {
-  git cherry-pick --abort $args
-}
-function gcpc {
-  git cherry-pick --continue $args
-}
-function gcs {
-  git commit -S $args
-}
-function gd {
-  git diff $args
-}
-function gdca {
-  git diff --cached $args
-}
-function gdt {
-  git diff-tree --no-commit-id --name-only -r $args
-}
-function gdw {
-  git diff --word-diff $args
-}
-function gf {
-  git fetch $args
-}
-function gfa {
-  git fetch --all --prune $args
-}
-function gfo {
-  git fetch origin $args
-}
-function gg {
-  git gui citool $args
-}
-function gga {
-  git gui citool --amend $args
-}
-function ggf {
-  $CurrentBranch = Get-Git-CurrentBranch
-  git push --force origin $CurrentBranch
-}
-function ggfl {
-  $CurrentBranch = Get-Git-CurrentBranch
-  git push --force-with-lease origin $CurrentBranch
-}
-function ghh {
-  git help $args
-}
-function ggsup {
-  $CurrentBranch = Get-Git-CurrentBranch
-  git branch --set-upstream-to=origin/$CurrentBranch
-}
-function gpsup {
-  $CurrentBranch = Get-Git-CurrentBranch
-  git push --set-upstream origin $CurrentBranch
-}
-function gignore {
-  git update-index --assume-unchanged $args
-}
-function gignored {
-  git ls-files -v | Select-String "^[a-z]" -CaseSensitive
-}
-function gl {
-  git pull $args
-}
-function gm {
-  git merge $args
-}
-function gmom {
-  $MainBranch = Get-Git-MainBranch
-  git merge origin/$MainBranch $args
-}
-function gmt {
-  git mergetool --no-prompt $args
-}
-function gmtvim {
-  git mergetool --no-prompt --tool=vimdiff $args
-}
-function gmum {
-  $MainBranch = Get-Git-MainBranch
-  git merge upstream/$MainBranch $args
-}
-function gp {
-  git push $args
-}
-function gpd {
-  git push --dry-run $args
-}
-function gpf {
-  git push --force-with-lease $args
-}
-function gpf! {
-  git push --force $args
-}
-function gpoat {
-  git push origin --all
-  git push origin --tags
-}
-function gpristine {
-  git reset --hard
-  git clean -dfx
-}
-function gpu {
-  git push upstream $args
-}
-function gpv {
-  git push -v $args
-}
-function gr {
-  git remote $args
-}
-function gra {
-  git remote add $args
-}
-function grb {
-  git rebase $args
-}
-function grba {
-  git rebase --abort $args
-}
-function grbc {
-  git rebase --continue $args
-}
-function grbi {
-  git rebase -i $args
-}
-function grbm {
-  $MainBranch = Get-Git-MainBranch
-  git rebase $MainBranch $args
-}
-function grbs {
-  git rebase --skip $args
-}
-function grh {
-  git reset $args
-}
-function grhh {
-  git reset --hard $args
-}
-function grmv {
-  git remote rename $args
-}
-function grrm {
-  git remote remove $args
-}
-function grs {
-  git restore $args
-}
-function grset {
-  git remote set-url $args
-}
-
-function gru {
-  git reset -- $args
-}
-function grup {
-  git remote update $args
-}
-function grv {
-  git remote -v $args
-}
-function gsb {
-  git status -sb $args
-}
-function gsd {
-  git svn dcommit $args
-}
-function gsh {
-  git show $args
-}
-function gsi {
-  git submodule init $args
-}
-function gsps {
-  git show --pretty=short --show-signature $args
-}
-function gsr {
-  git svn rebase $args
-}
-function gss {
-  git status -s $args
-}
-function gst {
-  git status $args
-}
-function gsta {
-  git stash save $args
-}
-function gstaa {
-  git stash apply $args
-}
-function gstd {
-  git stash drop $args
-}
-function gstl {
-  git stash list $args
-}
-function gstp {
-  git stash pop $args
-}
-function gstc {
-  git stash clear $args
-}
-function gsts {
-  git stash show --text $args
-}
-function gsu {
-  git submodule update $args
-}
-function gsw {
-  git switch $args
-}
-function gts {
-  git tag -s $args
-}
-function gunignore {
-  git update-index --no-assume-unchanged $args
-}
-function gunwip {
-  Write-Output $(git log -n 1 | Select-String "--wip--" -Quiet).Count
-  git reset HEAD~1
-}
-function gup {
-  git pull --rebase $args
-}
-function gupv {
-  git pull --rebase -v $args
-}
-function glum {
-  $MainBranch = Get-Git-MainBranch
-  git pull upstream $MainBranch $args
-}
-function gvt {
-  git verify-tag $args
-}
-function gwch {
-  git whatchanged -p --abbrev-commit --pretty=medium $args
-}
-function gwip {
-  git add -A
-  git rm $(git ls-files --deleted) 2> $null
-  git commit --no-verify -m "--wip-- [skip ci]"
-}
-function ggl {
-  $CurrentBranch = Get-Git-CurrentBranch
-  git pull origin $CurrentBranch
-}
-function ggp {
-  $CurrentBranch = Get-Git-CurrentBranch
-  git push origin $CurrentBranch
-}
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gapa='it add --patch'
+alias gau='git add --update'
+alias gb='it branch'
+alias gba='it branch -a'
+alias gbl='git blame -b -w'
+alias gbnm='git branch --no-merged'
+alias gbr='git branch --remote'
+alias gbs='git bisect'
+alias gbsb='git bisect bad'
+alias gbsg='git bisect good'
+alias gbsr='git bisect reset'
+alias gbss='git bisect start'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gcn!='git commit -v --no-edit --amend'
+alias gca='git commit -v -a'
+alias gcam='git commit -a -m'
+alias gca!='gca!'
+alias gcan!='gcan!'
+alias gcans!='cans!'
+alias gcb='git checkout -b'
+alias gcf='git config --list'
+alias gcl='git clone --recursive'
+alias gclean='git clean -df'
+alias gcd='git checkout develop'
+alias gcmsg='git commit -m'
+alias gco='git checkout'
+alias gcount='git shortlog -sn'
+alias gcp='git cherry-pick'
+alias gcpa='git cherry-pick --abort'
+alias gcpc='git cherry-pick --continue'
+alias gcs='git commit -S'
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias gdt='git diff-tree --no-commit-id --name-only -r'
+alias gdw='git diff --word-diff'
+alias gf='git fetch'
+alias gfa='git fetch --all --prune'
+alias gfo='git fetch origin'
+alias gg='git gui citool'
+alias gga='git gui citool --amend'
+alias ghh='git help'
+alias gl='git pull'
+alias gm='git merge'
+alias gmt='git mergetool --no-prompt'
+alias gmtvim='git mergetool --no-prompt --tool=vimdiff'
+alias gp='git push'
+alias gpd='git push --dry-run'
+alias gpf='git push --force-with-lease'
+alias gpf!='git push --force'
+alias gpu='git push upstream'
+alias gpv='git push -v'
+alias gr='git remote'
+alias gra='git remote add'
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbi='git rebase -i'
+alias grbs='git rebase --skip'
+alias grh='git reset'
+alias grhh='git reset --hard'
+alias grmv='git remote rename'
+alias grrm='git remote remove'
+alias grs='git restore'
+alias grset='git remote set-url'
+alias gru='git reset --'
+alias grup='git remote update'
+alias grv='git remote -v'
+alias gsb='git status -sb'
+alias gsd='git svn dcommit'
+alias gsh='git show'
+alias gsi='git submodule init'
+alias gsps='git show --pretty=short --show-signature'
+alias gsr='git svn rebase'
+alias gss='git status -s'
+alias gst='git status'
+alias gsta='git stash save'
+alias gstaa='git stash apply'
+alias gstd='git stash drop'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gstc='git stash clear'
+alias gsts='git stash show --text'
+alias gsu='git submodule update'
+alias gsw='git switch'
+alias gts='git tag -s'
+alias gunignore='git update-index --no-assume-unchanged'
+alias gup='git pull --rebase'
+alias gcl='git clone'
+alias gupv='git pull --rebase -v'
+alias gvt='git verify-tag'
+alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 
 # -------
 # Aliases
 # -------
 
-function c {
-  code .
-}
+alias c='code .'
 
-function mkcd()
-{
-  mkdir $1 && cd $1
-}
 
 # -------
 # Node JS Aliases
 # -------
 
-function ns()
-{
-  npm start $1
-}
+alias nrb='npm run build'
+alias ns='npm start'
+alias nr='npm run'
+alias nrd='npm run dev'
+alias ni='npm install'
+alias nid='npm install -D'
+alias ys='yarn start'
+alias yr='yarn run'
+alias yb='yarn build'
+alias yd='yarn dev'
+alias ya='yarn add'
+alias yad='yarn add -D'
 
-function nr()
-{
-  npn run $1
-}
 
-function nd()
-{
-  npm dev $1
-}
+# Added by Toolbox App
+export PATH="$PATH:/Users/niklasfulle/Library/Application Support/JetBrains/Toolbox/scripts"
 
-function ys()
-{
-  yarn start $1
-}
 
-function yr()
-{
-  yarn run $1
-}
-
-function yd()
-{
-  yarn dev $1
-}
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion‚
