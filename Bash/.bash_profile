@@ -105,7 +105,7 @@ alias gsw='git switch'
 alias gts='git tag -s'
 alias gunignore='git update-index --no-assume-unchanged'
 alias gup='git pull --rebase'
-alias gcl='git clone'
+alias gcl='git clone $1'
 alias gupv='git pull --rebase -v'
 alias gvt='git verify-tag'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
@@ -134,11 +134,24 @@ alias yd='yarn dev'
 alias ya='yarn add'
 alias yad='yarn add -D'
 
+# -------
+# Path Variables
+# -------
 
 # Added by Toolbox App
 export PATH="$PATH:/Users/niklasfulle/Library/Application Support/JetBrains/Toolbox/scripts"
 
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion‚
+. "$HOME/.cargo/env"
+
+# Java Home Variable
+JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-19.jdk/Contents/Home"
+PATH="${JAVA_HOME}/bin:${PATH}"
+export PATH
+
+# Maven Home Variable
+export M2_HOME="/Library/Maven/apache-maven-3.9.3"
+PATH="${M2_HOME}/bin:${PATH}"
+export PATH
