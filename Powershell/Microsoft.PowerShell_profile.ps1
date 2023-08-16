@@ -453,6 +453,11 @@ function nr()
 	npn run $1
 }
 
+function nb()
+{
+	npm build $1
+}
+
 function nd()
 {
 	npm dev $1
@@ -466,6 +471,11 @@ function ys()
 function yr()
 {
 	yarn run $1
+}
+
+function yb()
+{
+	yarn build $1
 }
 
 function yd()
