@@ -443,6 +443,11 @@ function mkcd()
 # Node JS Aliases
 # -------
 
+function ni()
+{
+	npm install $1
+}
+
 function ns()
 {
 	npm start $1
@@ -461,6 +466,11 @@ function nb()
 function nd()
 {
 	npm dev $1
+}
+
+function ya()
+{
+	yarn add $1
 }
 
 function ys()
@@ -483,3 +493,4 @@ function yd()
 	yarn dev $1
 }
 
+Set-Alias mongod "C:\Program Files\MongoDB\Server\7.0\bin\mongod.exe"
